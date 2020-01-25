@@ -1,0 +1,79 @@
+/*全局*/
+a,a:visited{
+    width: 100%;
+    text-decoration: none;
+    color:#000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*隐藏浏览器滚动*/
+html { overflow-y: scroll; }
+html::-webkit-scrollbar {display:none}
+/*全局*/
+body{
+    margin: 0 auto;
+    height: 100vh;
+    width: 100%;
+    font-size: .8em;
+    background-image: radial-gradient(#536976,#292E49);
+}
+选中属性*/
+/* ::selection
+{
+    background-color: black;
+}
+/*自定义类*/
+/*动画*/
+/* @keyframes out{
+    from{opacity: 1;}
+    to{opacity: 0;}
+} */
+.out{
+    animation:out 3s;
+}
+/* 框架 */
+#wrapper{
+    width: 100%;
+    height: 100%;
+    margin:0;
+    padding: .1px;
+}
+/*头*/
+.el-header{
+    padding-top: 10px;
+    color:#fffffe;
+    text-align: center;
+}
+.el-header .line{
+    display:inline-block;
+    width: 39%;
+    background-color: #d1d1d1;
+    border: .5px solid #a1a1a1;
+    vertical-align: 5px;
+}
+/*中*/
+.el-main{
+    width: 90%;
+    margin: 0 auto;
+    background-color: #fffffe;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.sourceBox{
+    text-align: center;
+}
+.source{
+    font-size: 1.5em;
+}
+.el-card{
+    margin: 10px auto;
+    border-radius: 10px;
+    background-color: #ffe;
+}
+
+/* 积分分布雷达图 */
+#distribution{
+    width: 100%;
+    height: 300px;
+}

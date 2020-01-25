@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/vue.js"></script>
+    <script src="./js/element.ui.js"></script>
+    <script src="./js/echarts.min.js"></script>
+    <script src="./js/index.js"></script>
+
+    <link rel="stylesheet" href="./css/element.ui.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>牛牛成长基金积分系统</title>
+</head>
+<body>
+    <div id="wrapper">
+        <el-container>
+            <el-header>
+                <span class="line"></span>
+                <span class="text">牛牛成长记</span>
+                <span class="line"></span>
+            </el-header>
+            <el-main>
+                <div class="sourceBox">
+                <span>剩余积分：<span class="source">{{source}}</span> , 积分总额：{{source}}</span>
+                </div>
+                <el-card class="distributionBox">
+                    <div slot="header">
+                        <span>积分分布</span>
+                    </div>
+                    <div id="distribution">
+                    </div>
+                </el-card>
+                <el-card>
+                    <div slot="header">
+                        <span>积分详情</span>
+                    </div>
+                    <el-timeline>
+                        <el-timeline-item :timestamp="'2020-01-25'">
+                            陪爷爷下象棋
+                            <p>德育+1，智力+1</p>
+                        </el-timeline-item>
+                    </el-timeline>
+                </el-card>
+                <el-card>
+                    <div slot="header">
+                        <span>兑换详情</span>
+                    </div>
+                    <div id="exchange"></div>
+                </el-card>
+            </el-main>
+            <el-footer></el-footer>
+        </el-container>
+    </div>
+</body>
+
+<script type="text/javascript">
+    var app= new Vue({
+        el:'#wrapper',
+        data:{
+            source:2
+        }
+    });
+    var distribution=echarts.init(document.getElementById('distribution'));
+    var distributionOption={
+        radar:{
+            name:{
+                textStyle:{
+                    color:'#000',
+                }
+            },
+            indicator:[
+                {name:'德'},
+                {name:'劳'},
+                {name:'美'},
+                {name:'体'},
+                {name:'智'}
+            ]
+        },
+        series:[
+            {
+                type:'radar',
+                data:[
+                    {
+                        value:[1,0,0,0,1]
+                    }
+                ]
+            }
+        ]
+    }
+    distribution.setOption(distributionOption);
+    
+</script>
+</html>
