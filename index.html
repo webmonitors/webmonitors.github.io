@@ -37,9 +37,8 @@
                         <span>积分详情</span>
                     </div>
                     <el-timeline>
-                        <el-timeline-item :timestamp="'2020-01-25'">
-                            陪爷爷下象棋
-                            <p>德育+1，智力+1</p>
+                        <el-timeline-item v-for="(detail ,index) in details" :key="index" :timestamp="detail.timeStamp">
+                            {{detail.content}}
                         </el-timeline-item>
                     </el-timeline>
                 </el-card>
@@ -59,7 +58,14 @@
     var app= new Vue({
         el:'#wrapper',
         data:{
-            source:2
+            source:3,
+            details:[{
+                content:'陪爷爷下象棋,德育+1，智力+1',
+                timeStamp:'2020-01-25'
+            },{
+                content:'擦桌子，扫地,劳动+1',
+                timeStamp:'2020-01-25'
+            },]
         }
     });
     var distribution=echarts.init(document.getElementById('distribution'));
@@ -83,7 +89,7 @@
                 type:'radar',
                 data:[
                     {
-                        value:[1,0,0,0,1]
+                        value:[1,1,0,0,1]
                     }
                 ]
             }
